@@ -2,3 +2,4 @@ data/raw/
 data/processed/tabula_muris*
 *.h5ad
 .ipynb_checkpoints/
+results/
