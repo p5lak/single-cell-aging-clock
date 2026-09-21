@@ -1,5 +1,16 @@
+# Local Python environment
+.venv/
+
+# Data
 data/raw/
 data/processed/tabula_muris*
 *.h5ad
+
+# Jupyter
 .ipynb_checkpoints/
+
+# Generated outputs
 results/
+
+# macOS
+.DS_Store
