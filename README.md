@@ -22,10 +22,9 @@ I wanted to build a project that combines:
 At first, I did not directly start with the aging dataset. I used Scanpy’s PBMC3k dataset to understand how AnnData objects, QC, PCA, UMAP, and clustering work. After that, I moved to the actual aging dataset.
 
 ---
-
 ## Data
 
-This project uses a processed subset of the publicly available Tabula Muris Senis single-cell RNA-seq dataset.
+This project uses a processed subset of the publicly available [Tabula Muris Senis](https://github.com/czbiohub-sf/tabula-muris-senis) FACS single-cell RNA-seq dataset. The processed Scanpy-ready data are available through the [Tabula Muris Senis Figshare project](https://figshare.com/projects/Tabula_Muris_Senis/64982).
 
 The original dataset contains single-cell transcriptomic data from mice across different ages, tissues, and cell types. I used the lung tissue data because the dataset contains age, mouse ID, tissue, and cell-type metadata needed for chronological age prediction.
 
@@ -44,7 +43,6 @@ This gives a final development dataset of 5,218 cells and 22,966 genes from 14 m
 The age labels were converted from `3m`, `18m`, and `24m` to numerical values of 3, 18, and 24 months for regression.
 
 The dataset already contains processed expression data and precomputed PCA/UMAP representations. Therefore, the original QC, normalization, highly variable gene selection, and dimensionality reduction were not performed by this project.
-```
 
 ---
 
