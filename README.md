@@ -23,33 +23,27 @@ At first, I did not directly start with the aging dataset. I used Scanpy’s PBM
 
 ---
 
-## Dataset
+## Data
 
-The main dataset used in this project is a processed subset of **Tabula Muris Senis**, a mouse aging single-cell dataset.
+This project uses a processed subset of the publicly available Tabula Muris Senis single-cell RNA-seq dataset.
 
-The dataset contains:
+The original dataset contains single-cell transcriptomic data from mice across different ages, tissues, and cell types. I used the lung tissue data because the dataset contains age, mouse ID, tissue, and cell-type metadata needed for chronological age prediction.
 
-* 5,218 cells
-* 22,966 genes
-* 3 age groups:
+The subset preparation is documented in:
 
-  * 3 months
-  * 18 months
-  * 24 months
+`notebooks/03_tabula_muris_subset_preparation.ipynb`
 
-Important metadata columns used:
+The notebook loads the processed Tabula Muris Senis `.h5ad` file, selects lung cells, and retains cells from three age groups:
 
-* `age`
-* `age_months`
-* `mouse.id`
-* `sex`
-* `tissue`
-* `cell_ontology_class`
+- 3 months: 1,381 cells
+- 18 months: 1,960 cells
+- 24 months: 1,877 cells
 
-The `.h5ad` dataset file is not uploaded to GitHub because it is too large. Locally, I used:
+This gives a final development dataset of 5,218 cells and 22,966 genes from 14 mice.
 
-```text
-data/processed/tabula_muris_senis_dev_subset.h5ad
+The age labels were converted from `3m`, `18m`, and `24m` to numerical values of 3, 18, and 24 months for regression.
+
+The dataset already contains processed expression data and precomputed PCA/UMAP representations. Therefore, the original QC, normalization, highly variable gene selection, and dimensionality reduction were not performed by this project.
 ```
 
 ---
@@ -275,6 +269,10 @@ The result suggests that cell-type-specific age prediction may be more useful th
 * Jupyter Notebook
 * Git and GitHub
 
+---
+### Reproducibility note
+
+The raw `.h5ad` file is not included in this repository. Notebook 03 documents the subset preparation from the processed Tabula Muris Senis dataset.
 ---
 
 ## How to run this project
